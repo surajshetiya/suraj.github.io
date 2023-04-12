@@ -50,7 +50,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add publications.json
+        git add -A
         git commit -m "updated publications.json" 
         git push
 
