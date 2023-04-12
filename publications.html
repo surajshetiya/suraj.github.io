@@ -83,15 +83,15 @@
 						// console.log(data);
 						var elem = document.getElementById("publish-names");
 						// Need to add elements to elem
-						const sortedPubs = data.publications.sort((a, b) => a["bib"]["year"] > b["bib"]["year"]);
-						sortedPubs.array.forEach(element => {
+						const sortedPubs = data.publications.sort((a, b) => a["bib"]["pub_year"] > b["bib"]["pub_year"]);
+						sortedPubs.forEach(element => {
 							// Add a <p> tag to the div
 							const para = document.createElement("p");
 							const nodeNames = document.createTextNode(element["bib"]["author"].split(" and ").join(", ") + ". ");
 							para.appendChild(nodeNames);
 							const nodePaper = document.createTextNode(element["bib"]["title"] + ". ");
 							para.appendChild(nodePaper);
-							const nodeJournal = document.createTextNode(element["bib"]["journal"] + ", " + element["bib"]["year"]);
+							const nodeJournal = document.createTextNode(element["bib"]["journal"] + ", " + element["bib"]["pub_year"]);
 							para.appendChild(nodeJournal);
 							elem.appendChild(para);
 						});
