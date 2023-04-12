@@ -1,4 +1,4 @@
-name: run cron/main.py
+name: Update publications.json
 
 on:
   schedule:
