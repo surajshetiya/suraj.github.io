@@ -27,7 +27,7 @@ class Author:
 
 
 if __name__ == "__main__":
-  print(os.listdir(".")
+  print(os.listdir("."))
   levels = int(os.environ["LEVELS"])
   level_up = [".."]*levels
   path = os.path.join(*level_up, "publications.json")
