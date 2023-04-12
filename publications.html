@@ -65,8 +65,31 @@
 				btn.addEventListener("click", () => {
 					menu.classList.toggle("hidden");
 				});
+
+				function readTextFile(file, callback) {
+					var rawFile = new XMLHttpRequest();
+					rawFile.overrideMimeType("application/json");
+					rawFile.open("GET", file, true);
+					rawFile.onreadystatechange = function() {
+						if (rawFile.readyState === 4 && rawFile.status == "200") {
+							callback(rawFile.responseText);
+						}
+					}
+					rawFile.send(null);
+				}
+
+				
+
+				window.addEventListener("load", (event) => {
+					// Need to populate the div id "publish-names"
+					readTextFile("publications.json", function(text){
+						var data = JSON.parse(text);
+						console.log(data);
+					});
+				});
 			</script>
 		</nav>
-		<h1 class="text-blue-500 text-2xl md:text-3xl lg:text-4xl font-bold p-4"></h1>
+		<div id="publish-names">
+		</div>
   </body>
 </html>
