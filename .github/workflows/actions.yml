@@ -20,13 +20,13 @@ jobs:
       - name: install python packages
         run: |
           python -m pip install --upgrade pip
-          pip install -r cron/requirements.txt
+          pip install -r .github/workflows/cron/requirements.txt
 
       - name: execute py script # run main.py
         env:
           API_KEY: ${{ secrets.API_KEY }}
-        run: python cron/main.py
+        run: python .github/workflows/cron/main.py
 
       - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Addig file
+        commit_message: Adding file

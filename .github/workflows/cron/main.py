@@ -27,7 +27,9 @@ class Author:
 
 
 if __name__ == "__main__":
-  auth = Author("Suraj Shetiya", "publications.json")
+  levels = int(os.environ["LEVELS"])
+  level_up = [".."]*levels
+  path = os.path.join(*level_up, "publications.json")
+  auth = Author("Suraj Shetiya", path)
   auth.get_author_info()
   auth.store_info()
-  api_key = os.environ["API_KEY"]
