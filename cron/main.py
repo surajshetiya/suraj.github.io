@@ -13,7 +13,7 @@ class Author:
   def get_author_info(self):
     search_query = scholarly.search_author(self.author_name)
     first_author_result = next(search_query)
-    scholarly.pprint(first_author_result)
+    # scholarly.pprint(first_author_result)
     author = scholarly.fill(first_author_result)
     pubs = len(author['publications'])
     for i in range(pubs):
@@ -23,8 +23,6 @@ class Author:
   def store_info(self):
     with open(self.file_name, "w") as out_file:
       out_file.write(json.dumps(self.author_info))
-    print(os.getcwd())
-    print(os.listdir(".."))
 
 
 if __name__ == "__main__":
