@@ -78,18 +78,35 @@
 					rawFile.send(null);
 				}
 
-				
+				function storeByYear(text){
+						var data = JSON.parse(text);
+						// console.log(data);
+						var elem = document.getElementById("publish-names");
+						// Need to add elements to elem
+						const sortedPubs = data.publications.sort((a, b) => a["bib"]["year"] > b["bib"]["year"]);
+						sortedPubs.array.forEach(element => {
+							// Add a <p> tag to the div
+							const para = document.createElement("p");
+							const nodeNames = document.createTextNode(element["bib"]["author"].split(" and ").join(", ") + ". ");
+							para.appendChild(nodeNames);
+							const nodePaper = document.createTextNode(element["bib"]["title"] + ". ");
+							para.appendChild(nodePaper);
+							const nodeJournal = document.createTextNode(element["bib"]["journal"] + ", " + element["bib"]["year"]);
+							para.appendChild(nodeJournal);
+							elem.appendChild(para);
+						});
+					}
 
 				window.addEventListener("load", (event) => {
 					// Need to populate the div id "publish-names"
-					readTextFile("publications.json", function(text){
-						var data = JSON.parse(text);
-						console.log(data);
-					});
+					readTextFile("publications.json", );
 				});
 			</script>
 		</nav>
-		<div id="publish-names">
+		<div>
+			<h1 class="text-blue-500 text-2xl md:text-3xl lg:text-4xl font-bold p-4">Publications</h1>
+			<div id="publish-names">
+			</div>
 		</div>
   </body>
 </html>
