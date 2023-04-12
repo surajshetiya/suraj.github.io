@@ -1,5 +1,7 @@
 import json
 from scholarly import scholarly, ProxyGenerator
+import os
+
 
 class Author:
 
@@ -23,6 +25,7 @@ class Author:
         out_file.write(json.dumps(self.author_info))
 
 if __name__ == "__main__":
-    auth = Author("Suraj Shetiya", "../publications.json")
-    auth.get_author_info()
-    auth.store_info()
+  auth = Author("Suraj Shetiya", "../publications.json")
+  auth.get_author_info()
+  auth.store_info()
+  api_key = os.environ["API_KEY"]
