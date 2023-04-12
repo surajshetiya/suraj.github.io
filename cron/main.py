@@ -21,8 +21,11 @@ class Author:
     self.author_info = author
 
   def store_info(self):
-      with open(self.file_name, "w") as out_file:
-        out_file.write(json.dumps(self.author_info))
+    with open(self.file_name, "w") as out_file:
+      out_file.write(json.dumps(self.author_info))
+    print(os.getcwd())
+    print(os.listdir(".."))
+
 
 if __name__ == "__main__":
   auth = Author("Suraj Shetiya", "../publications.json")
