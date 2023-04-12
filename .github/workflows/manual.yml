@@ -44,15 +44,18 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
       run: python cron/main.py
 
-    - name: commit files
+    - name: commit and files
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -A
-        git diff-index --quiet HEAD || (git commit -a -m "updated publications.json" --allow-empty)
+        git add publications.json
+        git commit -m "updated publications.json" 
+        git push
 
-    - name: push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main 
+    # - name: push changes
+    #   uses: ad-m/github-push-action@v0.6.0
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     branch: main 

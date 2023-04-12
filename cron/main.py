@@ -5,7 +5,7 @@ import os
 
 class Author:
 
-  def __init__(self, author_name, file_name = 'publications.json'):
+  def __init__(self, author_name, file_name):
     self.author_name = author_name
     self.file_name = file_name
     self_author_info = {}
