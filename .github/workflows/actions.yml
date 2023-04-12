@@ -2,8 +2,7 @@ name: Update publications.json
 
 on:
   schedule:
-    # - cron: '0 0 * * *' # At 00:00 everyday
-    - cron: '*/5 * * * *' # At 00:00 everyday
+    - cron: '0 0 * * *' # At 00:00 everyday
 
 jobs:
   build:
