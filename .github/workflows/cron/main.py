@@ -35,4 +35,4 @@ if __name__ == "__main__":
   auth.get_author_info()
   auth.store_info()
   print(os.path.abspath(os.path.join(*level_up)))
-  print(os.listdir(os.path.join(*level_up))))
+  print(os.listdir(os.path.join(*level_up)))
