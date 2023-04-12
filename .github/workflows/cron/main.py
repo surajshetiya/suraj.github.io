@@ -30,6 +30,9 @@ if __name__ == "__main__":
   levels = int(os.environ["LEVELS"])
   level_up = [".."]*levels
   path = os.path.join(*level_up, "publications.json")
+  print(path)
   auth = Author("Suraj Shetiya", path)
   auth.get_author_info()
   auth.store_info()
+  print(os.path.abspath(os.path.join(*level_up)))
+  print(os.listdir(os.path.join(*level_up))))
