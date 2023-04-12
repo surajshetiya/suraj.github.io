@@ -27,13 +27,11 @@ class Author:
 
 
 if __name__ == "__main__":
-  print(os.listdir("."))
-  levels = int(os.environ["LEVELS"])
-  level_up = [".."]*levels
-  path = os.path.join(*level_up, "publications.json")
-  print(path)
-  auth = Author("Suraj Shetiya", path)
+  # No need to use LEVELS as working directory is the root level of github repo
+  # So, need to pass publications.json
+  # levels = int(os.environ["LEVELS"])
+  # level_up = [".."]*levels
+  # path = os.path.join(*level_up, "publications.json")
+  auth = Author("Suraj Shetiya", "publications.json")
   auth.get_author_info()
   auth.store_info()
-  print(os.path.abspath(os.path.join(*level_up)))
-  print(os.listdir(os.path.join(*level_up)))
