@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Suraj</title>
+		<link href="//mincss.com/entireframework.min.css" rel="stylesheet" type="text/css">
+		<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+		<style>
+			.hero {
+				background: #eee;
+				padding: 20px;
+				border-radius: 10px;
+				margin-top: 1em;
+			}
+
+			.hero h1 {
+				margin-top: 0;
+				margin-bottom: 0.3em;
+			}
+
+			.c4 {
+				padding: 10px;
+				box-sizing: border-box;
+			}
+
+			.c4 h3 {
+				margin-top: 0;
+			}
+
+			.c4 a {
+				margin-top: 10px;
+				display: inline-block;
+			}
+
+			@media  only screen and (max-width: 500px) { 
+				.small-disp { 
+					display: none; 
+				}
+			}
+
+			@media  only screen and (min-width: 501px) { 
+				.small-disp { 
+					display: inline-flex; 
+				} 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav" tabindex="-1" onclick="this.focus()">
+			<div class="container">
+                <div class="small-disp">
+					<img src="images/icons/favicon-16x16.png" alt="Logo" class="h-8 w-8 mr-2">
+					&nbsp;
+				</div>
+				<a class="pagename current" href="research.html">Research</a>
+				<a href="index.html">Home</a>
+				<a href="publications.html">Publications</a> 
+			</div>
+		</div>
+		<button class="btn-close btn btn-sm">×</button>
+		<div class="container">
+			<div class="hero">
+				<h1>Example</h1>
+				<p>You can view the source of this page and copy it to get a quick start on a project with Min!</p>
+				<p>You can view the source of this page and copy it to get a quick start on a project with Min!</p>
+				<a class="btn btn-b" href="http://owenversteeg.com">Go places!</a>
+		    </div>
+        </div>
+	</body>
+</html>
