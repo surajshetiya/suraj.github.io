@@ -78,16 +78,12 @@
 					rawFile.send(null);
 				}
 
-				function compare(a, b) {
-					return parseInt(a["bib"]["pub_year"]) > parseInt(b["bib"]["pub_year"]);
-				}
-
 				function storeByYear(text){
 						var data = JSON.parse(text);
 						// console.log(data);
 						var elem = document.getElementById("publish-names");
 						// Need to add elements to elem
-						const sortedPubs = data.publications.sort(compare);
+						const sortedPubs = data.publications.sort((a,b) => a.bib.pub_year - b.bib.pub_year);
 						sortedPubs.forEach(element => {
 							// Add a <p> tag to the div
 							const para = document.createElement("p");
@@ -113,7 +109,8 @@
 		<div>
 			<h1 class="text-blue-500 text-2xl md:text-3xl lg:text-4xl font-bold p-4">Publications</h1>
 			<!--div id="publish-names" class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4"-->
-			<div id="publish-names">
+			<div class="container gap-4 grid mx-auto grid-flow-col grid-cols-12">
+				<div id="publish-names" class="col-start-2 col-end-7">ljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksajljasdklsajdlksaj</div>
 			</div>
 		</div>
   </body>
