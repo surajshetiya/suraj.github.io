@@ -89,7 +89,7 @@
 							const para = document.createElement("p");
 							const nodeNames = document.createTextNode(element["bib"]["author"].split(" and ").join(", ") + ". ");
 							para.appendChild(nodeNames);
-							const nodePaper = document.createTextNode(element["bib"]["title"] + ". ");
+							const nodePaper = document.createTextNode("<span style=\"font-weight:bold\">" + element["bib"]["title"] + "<\span>. ");
 							para.appendChild(nodePaper);
 							const nodeJournal = document.createTextNode(element["bib"]["citation"]);
 							para.appendChild(nodeJournal);
