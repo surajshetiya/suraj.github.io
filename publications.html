@@ -78,19 +78,26 @@
 					rawFile.send(null);
 				}
 
+				function compare(a, b) {
+					return parseInt(a["bib"]["pub_year"]) > parseInt(b["bib"]["pub_year"]);
+				}
+
 				function storeByYear(text){
 						var data = JSON.parse(text);
 						// console.log(data);
 						var elem = document.getElementById("publish-names");
 						// Need to add elements to elem
-						const sortedPubs = data.publications.sort((a, b) => parseInt(a["bib"]["pub_year"]) > parseInt(b["bib"]["pub_year"]));
+						const sortedPubs = data.publications.sort(compare);
 						sortedPubs.forEach(element => {
 							// Add a <p> tag to the div
 							const para = document.createElement("p");
 							const nodeNames = document.createTextNode(element["bib"]["author"].split(" and ").join(", ") + ". ");
 							para.appendChild(nodeNames);
-							const nodePaper = document.createTextNode("<span style=\"font-weight:bold\">" + element["bib"]["title"] + "<\span>. ");
-							para.appendChild(nodePaper);
+							const nodeSpan = document.createElement("span");
+							nodeSpan.style.fontWeight = "bold";
+							const nodePaper = document.createTextNode(element["bib"]["title"] + ". ");
+							nodeSpan.appendChild(nodePaper);
+							para.appendChild(nodeSpan);
 							const nodeJournal = document.createTextNode(element["bib"]["citation"]);
 							para.appendChild(nodeJournal);
 							elem.appendChild(para);
