@@ -83,7 +83,7 @@
 						// console.log(data);
 						var elem = document.getElementById("publish-names");
 						// Need to add elements to elem
-						const sortedPubs = data.publications.sort((a, b) => Integer.parseInt(a["bib"]["pub_year"]) > Integer.parseInt(b["bib"]["pub_year"]));
+						const sortedPubs = data.publications.sort((a, b) => parseInt(a["bib"]["pub_year"]) > parseInt(b["bib"]["pub_year"]));
 						sortedPubs.forEach(element => {
 							// Add a <p> tag to the div
 							const para = document.createElement("p");
