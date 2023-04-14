@@ -51,7 +51,7 @@ class Author:
     # create Hashmap of titles
     title_data_hm = {}
     for pub in dblp_data["publications"]:
-      title_data_hm[pub['title']] = pub
+      title_data_hm[pub['title'].lower()] = pub
     # Sort by year - descending
     data['publications'].sort(key=lambda x:x['bib']['pub_year'], reverse=True)
     with open(self.backup_file_name, "w") as out_file:
@@ -67,9 +67,10 @@ class Author:
           out_file.write("<h1>" + str(cur_year) + "</h1>\n")
         out_file.write("<p>")
         # Trial code
-        if bib['title'] in title_data_hm:
+        bib_title_dblp = bib['title'].lower() + "."
+        if bib_title_dblp in title_data_hm:
           # Found title
-          dblp_bib = title_data_hm[bib['title']]
+          dblp_bib = title_data_hm[bib_title_dblp]
           if "pages" in dblp_bib:
             page_count = dblp_bib['pages']
             page_count = page_count.split("-")
@@ -92,11 +93,11 @@ class Author:
         out_file.write("<b>")
         # Trial code
         a_tag_set = False
-        if bib['title'] in title_data_hm:
+        if bib_title_dblp in title_data_hm:
           # Found title
-          dblp_bib = title_data_hm[bib['title']]
-          if "ee" in dblp_bib[bib['title']] and len(dblp_bib[bib['title']]["ee"]) > 0:
-            out_file.write('<a href="' + str(dblp_bib[bib['title']]["ee"]) + '">')
+          dblp_bib = title_data_hm[bib_title_dblp]
+          if "ee" in dblp_bib and len(dblp_bib["ee"]) > 0:
+            out_file.write('<a href="' + str(dblp_bib["ee"]) + '">')
             a_tag_set = True
         out_file.write(bib["title"])
         if a_tag_set:
