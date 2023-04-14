@@ -21,19 +21,31 @@
 			margin-bottom: 0.3em;
 		}
 
-		@media only screen and (max-width: 1026px) {
+		@media only screen and (max-width: 501px) {
 			.fadeaway {
 				display: none;
 			}
 		}
 
-		@media only screen and (min-width: 1027px) {
+		@media only screen and (min-width: 501px) {
 			.fadeaway {
 				display: inline-flex;
 			}
 		}
 
-		@media only screen and (max-width: 400px) {
+		@media only screen and (min-width: 501px) {
+			.fadeaway-a {
+				display: inline-flex;
+			}
+		}
+
+		@media only screen and (max-width: 500px) {
+			.fadeaway-a {
+				display: none;
+			}
+		}
+
+		@media only screen and (max-width: 500px) {
 			.img-dp {
 				display: none;
 			}
@@ -78,7 +90,7 @@
 				&nbsp;
 			</span>
 			<a class="pagename current" href="index.html">Home</a>
-			<a href="publications.html">Publications</a>
+			<a class="fadeaway" href="publications.html">Publications</a>
 		</div>
 	</div>
 	<button class="btn-close btn btn-sm">×</button>
