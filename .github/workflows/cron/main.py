@@ -33,7 +33,7 @@ class Author:
     data['publications'] = []
     for index in range(len(auth.publications)):
       auth.data["publications"][index].load_data()
-      data['publications'].append(auth.data["publications"]['index'].data)
+      data['publications'].append(auth.data["publications"][index].data)
     self.author_info['dblp'] = data
 
   def get_author_info(self):
@@ -46,9 +46,6 @@ class Author:
     print("Commited file!")
   
   def generate_backup_file(self):
-    self.google_scholar_generate_backup_file()
-
-  def google_scholar_generate_backup_file(self):
     data = self.author_info['google_scholar']
     dblp_data = self.author_info['dblp']
     # create Hashmap of titles
