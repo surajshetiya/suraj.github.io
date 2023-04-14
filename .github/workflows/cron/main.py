@@ -11,9 +11,6 @@ class Author:
     self.file_name = file_name
     self.backup_file_name = backup_file_name
     self.author_info = {}
-    print("Creating object")
-    import dblp
-    print("Created object")
 
   def google_scholar_get_author_info(self):
     search_query = scholarly.search_author(self.author_name)
@@ -26,10 +23,10 @@ class Author:
     self.author_info['google_scholar'] = author
 
   def dblp_get_author_info(self):
-    import dblp
     authors = dblp.search(self.author_name)
     # Assume first author
     auth = authors[0]
+    auth.load_data()
     data = {}
     data['homepage'] = auth.data['homepages'][0]
     data['name'] = auth.data['name']
