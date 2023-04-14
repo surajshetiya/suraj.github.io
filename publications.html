@@ -89,8 +89,14 @@
 		}
 
 		function storeByYear(text) {
-			var data = JSON.parse(text);
-			data = data["google_scholar"];
+			var dataJson = JSON.parse(text);
+			var data = dataJson["google_scholar"];
+			var dblpData = dataJson["dblp"];
+			var hashMap = {};
+			for (var index = 0; index < dblpData["publications"].length; ++index) {
+				// Set the hasmap for quick lookups
+				hashMap[dblpData["publications"][index]["title"].toLowerCase()] = dblpData["publications"][index];
+			}
 			// console.log(data);
 			var elem = document.getElementById("publish-names");
 			// Need to add elements to elem
@@ -111,15 +117,30 @@
 				const liTag = document.createElement("li");
 				const nodeNames = document.createTextNode(element.bib.author.split(" and ").join(", ") + ". ");
 				liTag.appendChild(nodeNames);
-				const nodeSpan = document.createElement("span");
-				nodeSpan.style.fontWeight = "bold";
+				// const nodeSpan = document.createElement("span");
+				// nodeSpan.style.fontWeight = "bold";
+				// const nodePaper = document.createTextNode(element.bib.title + ". ");
+				// nodeSpan.appendChild(nodePaper);
+				// liTag.appendChild(nodeSpan);
+				
+				var node;
+				const nodeBold = document.createElement("bold");
 				const nodePaper = document.createTextNode(element.bib.title + ". ");
-				nodeSpan.appendChild(nodePaper);
-				liTag.appendChild(nodeSpan);
+				nodeBold.appendChild(nodePaper);
+				const paperName = element.bib.title.toLowerCase() + ".";
+				if(hashMap.hasOwnProperty(paperName) && hashMap[paperName].hasOwnProperty("ee") && hashMap[paperName]["ee"].length > 0) {
+					node = document.createElement("a");
+					node.setAttribute("target", "_blank");
+					node.setAttribute("href", hashMap[paperName]["ee"]);
+					node.appendChild(nodeBold);
+				} else {
+					node = nodeBold;
+				}
+				
+				liTag.appendChild(node);
 				const nodeJournal = document.createTextNode(element.bib.citation);
 				liTag.appendChild(nodeJournal);
 				orderedList.appendChild(liTag);
-				// elem.appendChild(liTag);
 			});
 			elem.appendChild(orderedList);
 		}
