@@ -49,9 +49,8 @@
 				<img src="images/icons/favicon-16x16.png" alt="Logo" class="h-8 w-8 mr-2">
 				&nbsp;
 			</div>
-			<a class="pagename current" href="publications.html">Publications</a>
 			<a href="index.html">Home</a>
-			<a href="research.html">Research</a>
+			<a class="pagename current" href="publications.html">Publications</a>
 		</div>
 	</div>
 	<button class="btn-close btn btn-sm">×</button>
@@ -91,6 +90,7 @@
 
 		function storeByYear(text) {
 			var data = JSON.parse(text);
+			data = data["google_scholar"];
 			// console.log(data);
 			var elem = document.getElementById("publish-names");
 			// Need to add elements to elem
