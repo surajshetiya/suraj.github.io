@@ -95,7 +95,7 @@
 			var hashMap = {};
 			for (var index = 0; index < dblpData["publications"].length; ++index) {
 				// Set the hasmap for quick lookups
-				hashMap[dblpData["publications"][index]["title"].toLowerCase()] = dblpData["publications"][index];
+				hashMap[dblpData["publications"][index]["title"].toLowerCase().replace(/[^0-9a-zA-Z ]/g,'')] = dblpData["publications"][index];
 			}
 			// console.log(data);
 			var elem = document.getElementById("publish-names");
@@ -127,7 +127,7 @@
 				const nodeBold = document.createElement("bold");
 				const nodePaper = document.createTextNode(element.bib.title + ". ");
 				nodeBold.appendChild(nodePaper);
-				const paperName = element.bib.title.toLowerCase() + ".";
+				const paperName = element.bib.title.toLowerCase().replace(/[^0-9a-zA-Z ]/g,'');
 				if(hashMap.hasOwnProperty(paperName) && hashMap[paperName].hasOwnProperty("ee") && hashMap[paperName]["ee"].length > 0) {
 					node = document.createElement("a");
 					node.setAttribute("target", "_blank");
