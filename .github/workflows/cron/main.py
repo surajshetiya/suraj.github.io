@@ -31,12 +31,12 @@ class Author:
     # Assume first author
     auth = authors[0]
     data = {}
-    data['homepage'] = auth['homepages'][0]
-    data['name'] = auth['name']
+    data['homepage'] = auth.data['homepages'][0]
+    data['name'] = auth.data['name']
     data['publications'] = []
     for index in range(len(auth.publications)):
-      auth.publications[index].load_data()
-      data['publications'].append(auth.publications['index'].data)
+      auth.data["publications"][index].load_data()
+      data['publications'].append(auth.data["publications"]['index'].data)
     self.author_info['dblp'] = data
 
   def get_author_info(self):
