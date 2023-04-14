@@ -1,7 +1,7 @@
 import json
 from scholarly import scholarly, ProxyGenerator
 import os
-
+import dblp
 
 
 class Author:
